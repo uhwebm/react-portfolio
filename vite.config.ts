@@ -7,5 +7,5 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
-  base: "/react-portfolio/"
+  base: "/react-portfolio/react-portfolio/"
 })
