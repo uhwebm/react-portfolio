@@ -75,10 +75,6 @@ export const Contact = ({ status }: ContactProps) => {
     const colorTextColor = getStatusTextColor(currentState.color);
     const colorBgColor = getStatusColor(currentState.color);
 
-    const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text);
-    };
-
     return (
         <section id="contact" className="py-24 px-6">
              <div className="mx-auto max-w-6xl">

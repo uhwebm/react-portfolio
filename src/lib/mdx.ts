@@ -21,13 +21,40 @@ const prettyCodeOptions = {
   },
 };
 
-export async function getPostBySlug(slug: string) {
-  if (!slug || slug === 'undefined') return { meta: { title: 'Not Found', date: '', description: '' }, content: null };
+export interface BlogPost {
+    slug: string;
+    title: string;
+    date: string;
+    description: string;
+    image?: string;
+    unlisted?: boolean;
+}
+
+export async function getPostBySlug(slug: string): Promise<{ meta: BlogPost, content: any }> {
+  if (!slug || slug === 'undefined') {
+      return { 
+          meta: { 
+              slug: '', 
+              title: 'Not Found', 
+              date: '', 
+              description: '' 
+          }, 
+          content: null 
+      };
+  }
   const fileName = slug + ".mdx";
   const filePath = path.join(contentDir, fileName);
   
   if (!fs.existsSync(filePath)) {
-      return { meta: { title: 'Post Not Found', date: '', description: '' }, content: null };
+      return { 
+          meta: { 
+              slug: '', 
+              title: 'Post Not Found', 
+              date: '', 
+              description: '' 
+          }, 
+          content: null 
+      };
   }
 
   const fileContent = fs.readFileSync(filePath, "utf8");
@@ -37,6 +64,7 @@ export async function getPostBySlug(slug: string) {
     date: string;
     description: string;
     image?: string;
+    unlisted?: boolean;
   }>({
     source: fileContent,
     options: { 
@@ -53,7 +81,7 @@ export async function getPostBySlug(slug: string) {
   };
 }
 
-export async function getAllPosts() {
+export async function getAllPosts(): Promise<BlogPost[]> {
   if (!fs.existsSync(contentDir)) return [];
   
   const files = fs.readdirSync(contentDir);
