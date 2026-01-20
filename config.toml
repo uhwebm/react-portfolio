@@ -1,0 +1,17 @@
+# Portfolio Configuration
+
+[status]
+# Options: "available", "busy", "commissions_only"
+state = "commissions_only"
+
+[status.available]
+label = "Available for work"
+color = "emerald"
+
+[status.busy]
+label = "Currently Busy"
+color = "red"
+
+[status.commissions_only]
+label = "Commissions Only"
+color = "yellow"
