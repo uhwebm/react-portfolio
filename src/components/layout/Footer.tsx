@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Twitter, Linkedin, Mail, Youtube } from "lucide-react";
+import { Github, Mail, Youtube } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -11,8 +11,8 @@ export const Footer = () => {
         </div>
 
         <div className="flex gap-6">
-          <a href="https://github.com/uhwebm" target="_blank" className="transition-colors hover:text-white"><Github size={20} /></a>
-          <a href="https://www.youtube.com/@ivadsiuls" target="_blank" className="transition-colors hover:text-white"><Youtube size={20} /></a>
+          <a href="https://github.com/uhwebm" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white"><Github size={20} /></a>
+          <a href="https://www.youtube.com/@ivadsiuls" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white"><Youtube size={20} /></a>
           <a href="mailto:uhwebm.business@protonmail.com" className="transition-colors hover:text-white"><Mail size={20} /></a>
         </div>
         

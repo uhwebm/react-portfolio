@@ -14,13 +14,9 @@ const navItems = [
 
 export const Navbar = () => {
     const pathname = usePathname();
-    const [activeTab, setActiveTab] = useState(pathname);
     const [isScrolledToContact, setIsScrolledToContact] = useState(false);
 
-    useEffect(() => {
-        setActiveTab(pathname);
-        setIsScrolledToContact(false); 
-    }, [pathname]);
+
 
     useEffect(() => {
         if (pathname !== "/") return;
@@ -40,7 +36,7 @@ export const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [pathname]);
 
-    const currentTab = isScrolledToContact && pathname === "/" ? "/#contact" : activeTab;
+    const currentTab = isScrolledToContact && pathname === "/" ? "/#contact" : pathname;
 
     return (
         <motion.nav 
@@ -56,9 +52,15 @@ export const Navbar = () => {
                         <Link 
                             key={item.path} 
                             href={item.path}
-                            onClick={() => {
-                                setActiveTab(item.path);
-                                if (item.path === "/#contact") setIsScrolledToContact(true);
+                            onClick={(e) => {
+                                if (item.path === "/#contact") {
+                                    if (pathname === "/") {
+                                        e.preventDefault();
+                                        const element = document.getElementById("contact");
+                                        element?.scrollIntoView({ behavior: "smooth" });
+                                    }
+                                    setIsScrolledToContact(true);
+                                }
                             }}
                             className={cn(
                                 "relative px-6 py-2 text-sm font-medium transition-colors hover:text-white",
