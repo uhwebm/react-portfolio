@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Crafted Digital Experiences",
-  description: "Premium portfolio showcasing games and web interfaces.",
+  title: "uhwebm",
+  description: "Game development",
 };
 
 export default function RootLayout({
