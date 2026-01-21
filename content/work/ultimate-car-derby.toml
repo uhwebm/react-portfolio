@@ -3,4 +3,4 @@ link = "https://www.roblox.com/games/108884702197874"
 description = "Remake of a classic car destruction game featuring custom physics, destructible vehicles, and massive multiplayer arenas."
 tags = ["Roblox Studio", "Luau", "Physics", "Nevermore Engine"]
 image = "https://placehold.co/800x600/1a1a1a/FFF?text=Coming+Soon"
-featured = true
+featured = false
